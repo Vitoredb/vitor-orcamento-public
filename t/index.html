@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow,noarchive"/>
+<meta name="theme-color" content="#0b0c0f"/>
+<title>WhatsApp · Vitor Bortoloto</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:#0b0c0f;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;display:grid;place-items:center;padding:24px}
+.card{width:min(100%,440px);text-align:center;padding:34px 24px;border:1px solid #262a31;border-radius:24px;background:#111318}
+.badge{display:inline-block;padding:7px 11px;border-radius:999px;background:#1d222a;color:#cfd5dd;font-size:13px;margin-bottom:16px}
+h1{font-size:28px;line-height:1.15;margin:0 0 10px}
+p{margin:0 auto 22px;color:#aeb5bf;line-height:1.5;max-width:350px}
+button,a.cta{width:100%;display:block;border:0;border-radius:15px;padding:16px 18px;font-size:18px;font-weight:750;text-decoration:none;cursor:pointer}
+.primary{background:#25D366;color:#07120b}
+.secondary{margin-top:10px;background:#1a1d23;color:#fff}
+.small{font-size:12px;color:#747b86;margin-top:16px}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="badge">Atendimento delivery • Cascavel/PR</div>
+  <h1>Fale com o Vitor no WhatsApp</h1>
+  <p>Envie o modelo do aparelho e explique o que aconteceu. O atendimento começa por aqui.</p>
+  <button id="open" class="primary">Abrir WhatsApp</button>
+  <a id="web" class="cta secondary" href="#" rel="noopener">Abrir pelo navegador</a>
+  <div class="small">Seu atendimento será iniciado diretamente com Vitor Bortoloto.</div>
+</main>
+<script>
+const message="Olá, Vitor! Conheci seu trabalho pelo TikTok e gostaria de solicitar um orçamento. Posso te enviar o modelo do aparelho e explicar o que aconteceu?";
+const encoded=encodeURIComponent(message);
+const app="whatsapp://send?phone=554598579157&text="+encoded;
+const web="https://wa.me/554598579157?text="+encoded;
+document.getElementById("web").href=web;
+document.getElementById("open").addEventListener("click",()=>{
+  window.location.href=app;
+  setTimeout(()=>{ if(document.visibilityState==="visible") window.location.href=web; },1200);
+});
+</script>
+</body>
+</html>
